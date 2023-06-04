@@ -53,7 +53,7 @@ body {
   position: absolute;
   font-family: 'Roboto Mono', monospace;
 }
-.word {
+#app > #loader-page > .word {
   bottom: 0;
   color: #fff;
   font-size: 18px;
@@ -67,13 +67,13 @@ body {
   top: 0;
 }
 
-.word span {
+#app > #loader-page > .word span {
   display: inline-block;
   transform: translateX(100%) scale(0.9);
   transition: transform 500ms;
 }
 
-.word .done {
+#app > #loader-page > .word > .done {
   color: #fff;
   transform: translateX(0) scale(1);
 }

@@ -14,7 +14,6 @@ import image_5 from '../static/textures/5.png';
 import image_6 from '../static/textures/6.png';
 import image_7 from '../static/textures/7.png';
 import image_8 from '../static/textures/8.png';
-import image_9 from '../static/textures/9.png';
 import mute from '../static/images/no-sound.png';
 import unmute from '../static/images/sound.png';
 
@@ -149,7 +148,7 @@ const loadingManager = new THREE.LoadingManager(
             gsap.to(
                 mesh.scale,
                 {
-                    delay: 1,
+                    delay: 0.5,
                     stagger: 0.1, 
                     duration: 2,
                     ease: 'power2.out',
@@ -158,7 +157,7 @@ const loadingManager = new THREE.LoadingManager(
                     z: 2,
                 }
             )
-        }, 1000);
+        }, 1500);
     },
 
     // Progress
@@ -181,7 +180,6 @@ textureLoader.load(image_5);
 textureLoader.load(image_6);
 textureLoader.load(image_7);
 textureLoader.load(image_8);
-textureLoader.load(image_9);
 textureLoader.load(mute);
 textureLoader.load(unmute);
 
@@ -240,7 +238,7 @@ loader.load(
  * *                                    Meshes
 =========================================================================================== */
 // Geometry
-let texture_num = Math.ceil(Math.random() * 9);
+let texture_num = Math.ceil(Math.random() * 8);
 const geometry = new THREE.IcosahedronGeometry(1, 1);
 let texture = null;
 if(texture_num === 1) {
@@ -266,9 +264,6 @@ else if(texture_num === 7) {
 } 
 else if(texture_num === 8) {
     texture = new THREE.TextureLoader().load(image_8);
-} 
-else if(texture_num === 9) {
-    texture = new THREE.TextureLoader().load(image_9);
 } 
 texture.wrapS = texture.wrapT = THREE.MirroredRepeatWrapping;
 
