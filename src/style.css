@@ -1,0 +1,145 @@
+/* =============================================================================================
+* General Purpose CSS
+============================================================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@400;700&display=swap');
+
+@font-face {
+  font-family: 'st';
+  src: url('../static/Fonts/st.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+@font-face {
+  font-family: 'stx';
+  src: url('../static/Fonts/stx.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease-in-out;
+}
+:root {
+  --main-bg-color: #050505;
+}
+html,
+body {
+  overscroll-behavior: none;
+  overflow: hidden;
+  background: var(--main-bg-color);
+}
+
+/* =============================================================================================
+* General Purpose CSS
+============================================================================================= */
+
+#loader-page{
+  width: 100vw;
+  height: 100vh;
+  background: var(--main-bg-color);
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-weight: 400;
+  overflow: hidden;
+  text-align: center;
+  color: red;
+  position: absolute;
+  font-family: 'Roboto Mono', monospace;
+}
+.word {
+  bottom: 0;
+  color: #fff;
+  font-size: 18px;
+  height: 2.5em;
+  left: 0;
+  line-height: 2.5em;
+  margin: auto;
+  right: 0;
+  position: absolute;
+  text-shadow: 0 0 10px #ffffff66, 0 0 5px #ffffff66;
+  top: 0;
+}
+
+.word span {
+  display: inline-block;
+  transform: translateX(100%) scale(0.9);
+  transition: transform 500ms;
+}
+
+.word .done {
+  color: #fff;
+  transform: translateX(0) scale(1);
+}
+
+.temp{
+  width: 10px;
+  height: 10px;
+}
+.loading-container{
+  width: 300px;
+  height: 4px;
+  border-radius: 10px;
+  margin-top: 50px;
+  font-size: 16px;
+  border: 1px solid #535353;
+  transition: all 0.3s ease-in-out;
+  transform: translateX(-10px);
+}
+.loading-progress{
+  width: 0px;
+  height: 4px;
+  background: #fff;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  box-shadow: 0px 0px 80px 1px #fff;
+}
+.loading-percentage{
+  margin-top: 8px;
+  color: #fff;
+  font-size: 18px;
+  transform: translateX(-10px);
+}
+/* =============================================================================================
+* Main page
+============================================================================================= */
+#main-page{
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+  color: white;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  z-index: 1;
+}
+.title{
+  text-align:center;
+}
+.name{
+  letter-spacing: 7px;
+  font-size: 70px;
+  font-family: 'stx';
+}
+.surname{
+  letter-spacing: 7px;
+  font-family: 'stx';
+  font-size: 70px;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 0.002rem;
+}
+.webgl {
+  position: fixed;
+  top: 0;
+  left: 0;
+  outline: none;
+}
