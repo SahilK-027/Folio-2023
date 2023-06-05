@@ -3,19 +3,14 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import VertexShader from './shaders/test/vertex.glsl'
 import FragmentShader from './shaders/test/fragment.glsl'
 import { gsap } from 'gsap';
+import SplitType from 'split-type';
+
+
 import click from '../static/Audio/click.mp3';
 import hover from '../static/Audio/hover.mp3';
 import bg from '../static/Audio/bg.mp3';
-import image_1 from '../static/textures/1.png';
-import image_2 from '../static/textures/2.png';
-import image_3 from '../static/textures/3.png';
-import image_4 from '../static/textures/4.png';
-import image_5 from '../static/textures/5.png';
-import image_6 from '../static/textures/6.png';
-import image_7 from '../static/textures/7.png';
-import image_8 from '../static/textures/8.png';
-import mute from '../static/images/no-sound.png';
-import unmute from '../static/images/sound.png';
+import imageDark from '../static/textures/6.png';
+import imageLight from '../static/textures/9.png';
 import logo from '../static/images/logo.png';
 
 console.log(`    
@@ -29,6 +24,8 @@ mmmmmm  mmmm  m      mmmmm   mmmm          mmmm   mmmm   mmmm   mmmm
 
 `);
 
+
+const myText = new SplitType('.my-text');
 
 function Ticker(elem) {
     elem.lettering();
@@ -112,7 +109,6 @@ setInterval(()=>{
 
 function getTime(){
     const date = new Date();
-    console.log(date);
     return date;
 }
 
@@ -170,6 +166,7 @@ const loadingManager = new THREE.LoadingManager(
         // Wait a little
         window.setTimeout(() => {
             // Update loadingBarElement
+            document.getElementById('main-page').style.display = "flex";
             gsap.to("#loader-page",
                 {
                     duration: 0.5,
@@ -189,7 +186,16 @@ const loadingManager = new THREE.LoadingManager(
                     y: 1.7,
                     z: 1.7,
                 }
-            )
+            );
+            setTimeout(()=>{
+                $words.each(function () {
+                    var $this = $(this),
+                        ticker = new Ticker($this).reset();
+                    $this.data('ticker', ticker);
+                });
+            },700)
+            
+
         }, 1500);
     },
 
@@ -205,16 +211,9 @@ const loadingManager = new THREE.LoadingManager(
  * *                                    Images Loader
 =========================================================================================== */
 const textureLoader = new THREE.TextureLoader(loadingManager);
-textureLoader.load(image_1);
-textureLoader.load(image_2);
-textureLoader.load(image_3);
-textureLoader.load(image_4);
-textureLoader.load(image_5);
-textureLoader.load(image_6);
-textureLoader.load(image_7);
-textureLoader.load(image_8);
-textureLoader.load(mute);
-textureLoader.load(unmute);
+
+textureLoader.load(imageDark);
+textureLoader.load(imageLight);
 textureLoader.load(logo);
 
 
@@ -271,45 +270,31 @@ loader.load(
 /** ===========================================================================================
  * *                                    Meshes
 =========================================================================================== */
+let isDark = true;
+
 // Geometry
-let texture_num = Math.ceil(Math.random() * 8);
+const checkbox = document.getElementById("checkbox");
+checkbox.addEventListener("change", () => {
+  document.body.classList.toggle("dark");
+  isDark = !isDark;
+  material.uniforms.uTexture.value = isDark ? textureDark : textureLight;
+})
+
+
 const geometry = new THREE.IcosahedronGeometry(1, 1);
-let texture = null;
-if (texture_num === 1) {
-    texture = new THREE.TextureLoader().load(image_1);
-}
-else if (texture_num === 2) {
-    texture = new THREE.TextureLoader().load(image_2);
-}
-else if (texture_num === 3) {
-    texture = new THREE.TextureLoader().load(image_3);
-}
-else if (texture_num === 4) {
-    texture = new THREE.TextureLoader().load(image_4);
-}
-else if (texture_num === 5) {
-    texture = new THREE.TextureLoader().load(image_5);
-}
-else if (texture_num === 6) {
-    texture = new THREE.TextureLoader().load(image_6);
-}
-else if (texture_num === 7) {
-    texture = new THREE.TextureLoader().load(image_7);
-}
-else if (texture_num === 8) {
-    texture = new THREE.TextureLoader().load(image_8);
-}
-texture = new THREE.TextureLoader().load(image_8);
-texture.wrapS = texture.wrapT = THREE.MirroredRepeatWrapping;
+const textureDark = new THREE.TextureLoader().load(imageDark);
+const textureLight = new THREE.TextureLoader().load(imageLight);
+textureDark.wrapS = textureDark.wrapT = THREE.MirroredRepeatWrapping;
+textureLight.wrapS = textureLight.wrapT = THREE.MirroredRepeatWrapping;
 
 // Material
 const material = new THREE.ShaderMaterial({
     vertexShader: VertexShader,
     fragmentShader: FragmentShader,
     uniforms: {
-        uTexture: { value: texture },
+        uTexture: { value: textureDark },
     },
-    side: THREE.DoubleSide
+    side: THREE.DoubleSide,
 })
 
 
@@ -317,8 +302,6 @@ const material = new THREE.ShaderMaterial({
 const mesh = new THREE.Mesh(geometry, material)
 mesh.scale.set(0);
 scene.add(mesh);
-
-
 
 
 /** ===========================================================================================
@@ -354,7 +337,6 @@ window.addEventListener('resize', () => {
     // Update renderer
     renderer.setSize(sizes.width, sizes.height)
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-
 })
 
 
