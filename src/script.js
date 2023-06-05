@@ -16,6 +16,7 @@ import image_7 from '../static/textures/7.png';
 import image_8 from '../static/textures/8.png';
 import mute from '../static/images/no-sound.png';
 import unmute from '../static/images/sound.png';
+import logo from '../static/images/logo.png';
 
 console.log(`    
 You are browsing:
@@ -102,6 +103,18 @@ $words.each(function () {
     $this.data('ticker', ticker);
 });
 
+let time = document.getElementById('time');
+
+setInterval(()=>{
+    time.innerHTML = getTime();
+},1000)
+
+
+function getTime(){
+    const date = new Date();
+    console.log(date);
+    return date;
+}
 
 /** ===========================================================================================
  * *                                    Sizes
@@ -130,7 +143,27 @@ scene.add(camera);
 /** ===========================================================================================
  * *                                    Loading manager
 =========================================================================================== */
+const musicBarsDiv = document.querySelector('.music-bars')
+const musicBars = document.querySelectorAll('.stroke');
 const progressBar = document.querySelector('.loading-progress');
+let SoundPlaying = false;
+musicBarsDiv.addEventListener('click', () => {
+    ctx.resume();
+    if (!SoundPlaying) {
+        for (let i = 0; i < 3; i++) {
+            musicBars[i].style.animationPlayState = 'running'
+        }
+        background.play();
+        SoundPlaying = true;
+    }
+    else {
+        for (let i = 0; i < 3; i++) {
+            musicBars[i].style.animationPlayState = 'paused';
+        }
+        background.pause();
+        SoundPlaying = false;
+    }
+})
 const loadingManager = new THREE.LoadingManager(
     // Loaded
     () => {
@@ -140,7 +173,7 @@ const loadingManager = new THREE.LoadingManager(
             gsap.to("#loader-page",
                 {
                     duration: 0.5,
-                    stagger: 0.1, 
+                    stagger: 0.1,
                     ease: 'power2.out',
                     yPercent: -300
                 }
@@ -149,12 +182,12 @@ const loadingManager = new THREE.LoadingManager(
                 mesh.scale,
                 {
                     delay: 0.5,
-                    stagger: 0.1, 
+                    stagger: 0.1,
                     duration: 2,
                     ease: 'power2.out',
-                    x: 2,
-                    y: 2,
-                    z: 2,
+                    x: 1.7,
+                    y: 1.7,
+                    z: 1.7,
                 }
             )
         }, 1500);
@@ -182,6 +215,7 @@ textureLoader.load(image_7);
 textureLoader.load(image_8);
 textureLoader.load(mute);
 textureLoader.load(unmute);
+textureLoader.load(logo);
 
 
 
@@ -241,30 +275,31 @@ loader.load(
 let texture_num = Math.ceil(Math.random() * 8);
 const geometry = new THREE.IcosahedronGeometry(1, 1);
 let texture = null;
-if(texture_num === 1) {
+if (texture_num === 1) {
     texture = new THREE.TextureLoader().load(image_1);
-} 
-else if(texture_num === 2) {
+}
+else if (texture_num === 2) {
     texture = new THREE.TextureLoader().load(image_2);
-} 
-else if(texture_num === 3) {
+}
+else if (texture_num === 3) {
     texture = new THREE.TextureLoader().load(image_3);
-} 
-else if(texture_num === 4) {
+}
+else if (texture_num === 4) {
     texture = new THREE.TextureLoader().load(image_4);
-} 
-else if(texture_num === 5) {
+}
+else if (texture_num === 5) {
     texture = new THREE.TextureLoader().load(image_5);
-} 
-else if(texture_num === 6) {
+}
+else if (texture_num === 6) {
     texture = new THREE.TextureLoader().load(image_6);
-} 
-else if(texture_num === 7) {
+}
+else if (texture_num === 7) {
     texture = new THREE.TextureLoader().load(image_7);
-} 
-else if(texture_num === 8) {
+}
+else if (texture_num === 8) {
     texture = new THREE.TextureLoader().load(image_8);
-} 
+}
+texture = new THREE.TextureLoader().load(image_8);
 texture.wrapS = texture.wrapT = THREE.MirroredRepeatWrapping;
 
 // Material
@@ -328,9 +363,9 @@ const clock = new THREE.Clock();
 const tick = () => {
     const elapsedTime = clock.getElapsedTime()
 
-    mesh.rotation.y = elapsedTime * 0.1;
-    mesh.rotation.x = elapsedTime * 0.1;
-    mesh.rotation.z = elapsedTime * 0.1;
+    mesh.rotation.y = elapsedTime * 0.07;
+    mesh.rotation.x = elapsedTime * 0.07;
+    mesh.rotation.z = elapsedTime * 0.07;
 
     // Update controls
     controls.update()

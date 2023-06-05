@@ -1,43 +1,47 @@
 /* =============================================================================================
 * General Purpose CSS
 ============================================================================================= */
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@400;700&display=swap");
 
 @font-face {
-  font-family: 'st';
-  src: url('../static/Fonts/st.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
+  font-family: "st";
+  src: url("../static/Fonts/st.woff2") format("woff2");
   font-display: block;
 }
 @font-face {
-  font-family: 'stx';
-  src: url('../static/Fonts/stx.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
+  font-family: "stx";
+  src: url("../static/Fonts/stx.woff2") format("woff2");
   font-display: block;
 }
-
+:root {
+  --main-bg-color: #070707;
+  --text-color: #b3b3b3;
+  --hover-color: #fff;
+}
 * {
   margin: 0;
   padding: 0;
   transition: all 0.3s ease-in-out;
-}
-:root {
-  --main-bg-color: #050505;
+  color: var(--text-color);
+  box-sizing: border-box;
 }
 html,
 body {
-  overscroll-behavior: none;
-  overflow: hidden;
+  overflow-y: hidden;
+  overflow-x: hidden;
   background: var(--main-bg-color);
 }
-
+.webgl {
+  position: fixed;
+  top: 0;
+  left: 0;
+  outline: none;
+}
 /* =============================================================================================
 * General Purpose CSS
 ============================================================================================= */
 
-#loader-page{
+#loader-page {
   width: 100vw;
   height: 100vh;
   background: var(--main-bg-color);
@@ -49,9 +53,8 @@ body {
   font-weight: 400;
   overflow: hidden;
   text-align: center;
-  color: red;
   position: absolute;
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
 }
 #app > #loader-page > .word {
   bottom: 0;
@@ -78,11 +81,11 @@ body {
   transform: translateX(0) scale(1);
 }
 
-.temp{
+.temp {
   width: 10px;
   height: 10px;
 }
-.loading-container{
+.loading-container {
   width: 300px;
   height: 4px;
   border-radius: 10px;
@@ -92,7 +95,7 @@ body {
   transition: all 0.3s ease-in-out;
   transform: translateX(-10px);
 }
-.loading-progress{
+.loading-progress {
   width: 0px;
   height: 4px;
   background: #fff;
@@ -101,7 +104,7 @@ body {
   position: relative;
   box-shadow: 0px 0px 80px 1px #fff;
 }
-.loading-percentage{
+.loading-percentage {
   margin-top: 8px;
   color: #fff;
   font-size: 18px;
@@ -111,21 +114,110 @@ body {
 * Main page
 ============================================================================================= */
 #main-page{
-  width: 100vw;
+  display: flex;
+  top:50%;
+  z-index: 1;
+}
+.side-bar {
   height: 100vh;
-  background: transparent;
-  color: white;
-  position: relative;
+  width: 18vw;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 0;
+}
+.side-bar > .logo > img {
+  width: 100px;
+  pointer-events: none;
+}
+.folio>p{
+  transform: rotate(-90deg);
+  font-family: "Roboto Mono", monospace;
+  font-weight: 400;
+  font-size: 12px;
+  pointer-events: none;
+}
+.music-bars{
+  height: 20px;
+  width: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  pointer-events: none;
-  z-index: 1;
+  pointer-events: auto;
+  cursor: pointer;
 }
-.title{
-  text-align:center;
+.stroke{
+  display: block;
+  background: var(--text-color);
+  height: 100%;
+  width: 2px;
+  border-radius: 50px;
+  margin: 0 3px;
+  animation: animate 1.2s linear infinite; 
+  animation-play-state: paused;
+}
+
+@keyframes animate {
+  50%{
+    height: 20%;
+  }
+  100%{
+    height: 100%;
+  }
+}
+.stroke:nth-child(1){
+  animation-delay: 0s;
+}
+.stroke:nth-child(2){
+  animation-delay: 0.3s;
+}
+.stroke:nth-child(3){
+  animation-delay: 0.6s;
+}
+.stroke:nth-child(4){
+  animation-delay: 0.3s;
+}
+.stroke:nth-child(5){
+  animation-delay: 0s;
+}
+.bottom-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.social-media{
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.social-media> i{
+  font-size: 20px;
+  margin: 10px;
+  cursor: pointer;
+}
+.social-media> i:hover{
+  color: var(--hover-color);
+}
+
+.scrollable{
+  z-index: 1;
+  padding: 60px 20px;
+  pointer-events: none;
+  height: 200vh;
+  overflow-y: scroll;
+}
+.scrollable>p{
+  font-family: "Roboto Mono", monospace;
+  font-size: 12px;
+  padding: 3px 0;
 }
 .name{
+  margin-top: 120px;
   letter-spacing: 7px;
   font-size: 70px;
   font-family: 'stx';
@@ -135,11 +227,31 @@ body {
   font-family: 'stx';
   font-size: 70px;
   -webkit-text-fill-color: transparent;
-  -webkit-text-stroke-width: 0.002rem;
+  -webkit-text-stroke-width: .01rem;
 }
-.webgl {
-  position: fixed;
-  top: 0;
-  left: 0;
-  outline: none;
+.creative{
+  margin-top: 50px;
+  letter-spacing: 3px;
+  font-size: 30px;
+  font-family: 'stx';
+}
+.developer{
+  letter-spacing: 3px;
+  font-family: 'stx';
+  font-size: 30px;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: .01rem;
+}
+.and{
+  margin-top: 50px;
+  letter-spacing: 3px;
+  font-size: 30px;
+  font-family: 'stx';
+  -webkit-text-fill-color: var(--text-color);
+}
+.designer{
+  letter-spacing: 3px;
+  font-size: 30px;
+  font-family: 'stx';
+  margin-bottom: 120px;
 }
