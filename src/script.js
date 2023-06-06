@@ -102,15 +102,59 @@ $words.each(function () {
 
 let time = document.getElementById('time');
 
-setInterval(()=>{
+setInterval(() => {
     time.innerHTML = getTime();
-},1000)
+}, 1000)
 
 
-function getTime(){
+function getTime() {
     const date = new Date();
     return date;
 }
+
+
+let interval
+
+const element1 = document.getElementById('scramble-1');
+const element2 = document.getElementById('scramble-2');
+const elementSpan1 = document.getElementById('scrambleSpan-1');
+const elementSpan2 = document.getElementById('scrambleSpan-2');
+
+const originalText = elementSpan1.innerText
+
+const randomInt = max => Math.floor(Math.random() * max)
+const randomFromArray = array => array[randomInt(array.length)]
+
+const scrambleText = text => {
+    const chars = '*?><[]&@#)(.%$-_:/;?!'.split('')
+    return text
+        .split('')
+        .map(x => randomInt(3) > 1 ? randomFromArray(chars) : x)
+        .join('')
+}
+
+element1.addEventListener('mouseover', () => {
+    interval = setInterval(() =>
+        elementSpan1.innerText = scrambleText(originalText)
+    , 100)
+})
+
+element1.addEventListener('mouseout', () => {
+    clearInterval(interval)
+    elementSpan1.innerText = originalText
+})
+
+element2.addEventListener('mouseover', () => {
+    interval = setInterval(() =>
+        elementSpan2.innerText = scrambleText(originalText)
+    , 100)
+})
+
+element2.addEventListener('mouseout', () => {
+    clearInterval(interval)
+    elementSpan2.innerText = originalText
+})
+
 
 /** ===========================================================================================
  * *                                    Sizes
@@ -187,14 +231,14 @@ const loadingManager = new THREE.LoadingManager(
                     z: 1.7,
                 }
             );
-            setTimeout(()=>{
+            setTimeout(() => {
                 $words.each(function () {
                     var $this = $(this),
                         ticker = new Ticker($this).reset();
                     $this.data('ticker', ticker);
                 });
-            },700)
-            
+            }, 700)
+
 
         }, 1500);
     },
@@ -272,13 +316,39 @@ loader.load(
 =========================================================================================== */
 let isDark = true;
 
+const moreInfoBtnDark = document.querySelectorAll('.btn-2');
+const moreInfoBtnLight = document.querySelectorAll('.btn-1');
+
+if(isDark){
+    moreInfoBtnLight.forEach((btn)=>{
+        btn.style.display = "none";
+    })
+}
+
 // Geometry
 const checkbox = document.getElementById("checkbox");
 checkbox.addEventListener("change", () => {
-  document.body.classList.toggle("dark");
-  isDark = !isDark;
-  material.uniforms.uTexture.value = isDark ? textureDark : textureLight;
+    document.body.classList.toggle("dark");
+    isDark = !isDark;
+    material.uniforms.uTexture.value = isDark ? textureDark : textureLight;
+    if(isDark){
+        moreInfoBtnLight.forEach((btn)=>{
+            btn.style.display = "none";
+        })
+        moreInfoBtnDark.forEach((btn)=>{
+            btn.style.display = "flex";
+        })
+    }
+    else{
+        moreInfoBtnDark.forEach((btn)=>{
+            btn.style.display = "none";
+        })
+        moreInfoBtnLight.forEach((btn)=>{
+            btn.style.display = "flex";
+        })
+    }
 })
+
 
 
 const geometry = new THREE.IcosahedronGeometry(1, 1);

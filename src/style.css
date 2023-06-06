@@ -19,13 +19,19 @@
   --text-color-dark: #b3b3b3;
   --text-color-light: #000;
   --hover-color-dark: grey;
+  --d: 2500ms;
+  --angle: 90deg;
+  --gradX: 100%;
+  --gradY: 50%;
+  --c1: rgba(253, 253, 253, 1);
+  --c2: grey;
 }
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-a{
+a {
   text-decoration: none;
 }
 body {
@@ -350,18 +356,295 @@ body.dark {
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
-.resume-box > i{
+.resume-box > i {
   transform: rotate(-90deg);
 }
-.mail{
+.mail {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.mail > p{
+.mail > p {
   transform: rotate(90deg);
 }
-.verticalbar{
+.verticalbar {
   height: 150px;
   background: red;
+}
+
+.projects {
+  margin-top: 100px;
+}
+.marquee {
+  position: relative;
+  overflow: hidden;
+  --offset: 20vw;
+  --move-initial: calc(-25% + var(--offset));
+  --move-final: calc(-50% + var(--offset));
+  font-family: "stx";
+}
+
+.marquee__inner {
+  width: fit-content;
+  display: flex;
+  position: relative;
+  transform: translate3d(var(--move-initial), 0, 0);
+  animation: marquee 5s linear infinite;
+  animation-play-state: running;
+}
+
+.marquee span {
+  font-size: 30px;
+  padding: 0 2vw;
+}
+
+.marquee .hollow {
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 0.1rem;
+}
+
+.marquee:hover .marquee__inner {
+  animation-play-state: running;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(var(--move-initial), 0, 0);
+  }
+
+  100% {
+    transform: translate3d(var(--move-final), 0, 0);
+  }
+}
+
+.stripes {
+  font-family: "Roboto Mono", monospace;
+}
+
+.project-item {
+  margin-top: 20px;
+  border-bottom: 1px solid grey;
+  font-size: 14px;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.project-title {
+  margin-left: 10px;
+}
+.more-info {
+  display: flex;
+}
+.btn-1 {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  pointer-events: auto;
+  cursor: pointer;
+}
+.btn-1 a {
+  text-decoration: none;
+  border: 2px solid #010100;
+  padding: 10px;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 110px;
+  font-size: 12px;
+  font-family: "Roboto Mono", monospace;
+}
+.btn-1 a::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: -2px;
+  width: calc(100% + 6px);
+  height: calc(100% - 10px);
+  background-color: #ffffff;
+  transition: all 0.5s ease-in-out;
+  transform: scaleY(1);
+}
+span {
+  position: relative;
+  /* z-index coz when we put bg to before and after this span text will not be visible */
+  z-index: 3;
+}
+.btn-1 a:hover::before {
+  transform: scaleY(0);
+}
+
+.btn-1 a::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: -5px;
+  width: calc(100% - 10px);
+  height: calc(100% + 10px);
+  background-color: #ffffff;
+  transition: all 0.5s ease-in-out;
+  transform: scaleX(1);
+}
+
+.btn-1 a:hover::after {
+  transform: scaleX(0);
+}
+
+.btn-2 {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  pointer-events: auto;
+  cursor: pointer;
+}
+.btn-2 a {
+  text-decoration: none;
+  border: 2px solid #b3b3b3;
+  padding: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 110px;
+  font-size: 12px;
+  font-family: "Roboto Mono", monospace;
+}
+.btn-2 a::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: -2px;
+  width: calc(100% + 6px);
+  height: calc(100% - 10px);
+  background-color: #070707;
+  transition: all 0.5s ease-in-out;
+  transform: scaleY(1);
+}
+.btn-2 > a > span {
+  color: #b3b3b3;
+  position: relative;
+  /* z-index coz when we put bg to before and after this span text will not be visible */
+  z-index: 3;
+}
+.btn-2 a:hover::before {
+  transform: scaleY(0);
+}
+
+.btn-2 a::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: -5px;
+  width: calc(100% - 10px);
+  height: calc(100% + 10px);
+  background-color: #070707;
+  transition: all 0.5s ease-in-out;
+  transform: scaleX(1);
+}
+
+.btn-2 a:hover::after {
+  transform: scaleX(0);
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 90deg;
+  inherits: true;
+}
+
+@property --gradX {
+  syntax: "<percentage>";
+  initial-value: 20%;
+  inherits: true;
+}
+
+@property --gradY {
+  syntax: "<percentage>";
+  initial-value: 0%;
+  inherits: true;
+}
+
+.project-image-info {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+.project-image {
+  width: 400px;
+  height: 258px;
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  pointer-events:auto;
+  transition: all 0.3s ease-in;
+  cursor: pointer;
+}
+.project-image:hover{
+  filter: grayscale(0%);
+  -webkit-filter: grayscale(0%);
+}
+.project-details-left {
+  margin: 0 10px;
+  border: 0.35rem solid;
+  width: 100%;
+  border-image: conic-gradient(
+      from var(--angle),
+      var(--c2),
+      var(--c1) 0.1turn,
+      var(--c1) 0.15turn,
+      var(--c2) 0.25turn
+    )
+    30;
+  animation: borderRotate var(--d) linear infinite forwards;
+}
+.project-details-right {
+  padding: 10px 20px;
+}
+.project-details-left:nth-child(2) {
+  border-image: radial-gradient(
+      ellipse at var(--gradX) var(--gradY),
+      var(--c1),
+      var(--c1) 10%,
+      var(--c2) 40%
+    )
+    30;
+  animation: borderRadial var(--d) linear infinite forwards;
+}
+
+@keyframes borderRotate {
+  100% {
+    --angle: 420deg;
+  }
+}
+
+@keyframes borderRadial {
+  20% {
+    --gradX: 100%;
+    --gradY: 50%;
+  }
+  40% {
+    --gradX: 100%;
+    --gradY: 100%;
+  }
+  60% {
+    --gradX: 50%;
+    --gradY: 100%;
+  }
+  80% {
+    --gradX: 0%;
+    --gradY: 50%;
+  }
+  100% {
+    --gradX: 50%;
+    --gradY: 0%;
+  }
 }
