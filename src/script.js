@@ -10,9 +10,17 @@ import click from '../static/Audio/click.mp3';
 import hover from '../static/Audio/hover.mp3';
 import bg from '../static/Audio/bg.mp3';
 import imageDark from '../static/textures/6.png';
-import imageLight from '../static/textures/9.png';
+import imageLight from '../static/textures/8.png';
 import logo from '../static/images/logo.png';
+import pacman from '../static/images/pacman.png';
+import castlebt from '../static/images/castleBattle.png';
+import innovision from '../static/images/innovision.png';
+import trinity from '../static/images/trinity.png';
+import coattain from '../static/images/coAttainment.png';
 
+/** ===========================================================================================
+ * *                                    DOM Manipulation
+=========================================================================================== */
 console.log(`    
 You are browsing:
 
@@ -117,8 +125,12 @@ let interval
 
 const element1 = document.getElementById('scramble-1');
 const element2 = document.getElementById('scramble-2');
+const element3 = document.getElementById('scramble-3');
+const element4 = document.getElementById('scramble-4');
 const elementSpan1 = document.getElementById('scrambleSpan-1');
 const elementSpan2 = document.getElementById('scrambleSpan-2');
+const elementSpan3 = document.getElementById('scrambleSpan-3');
+const elementSpan4 = document.getElementById('scrambleSpan-4');
 
 const originalText = elementSpan1.innerText
 
@@ -153,6 +165,30 @@ element2.addEventListener('mouseover', () => {
 element2.addEventListener('mouseout', () => {
     clearInterval(interval)
     elementSpan2.innerText = originalText
+})
+
+
+element3.addEventListener('mouseover', () => {
+    interval = setInterval(() =>
+        elementSpan3.innerText = scrambleText(originalText)
+    , 100)
+})
+
+element3.addEventListener('mouseout', () => {
+    clearInterval(interval)
+    elementSpan3.innerText = originalText
+})
+
+
+elementSpan4.addEventListener('mouseover', () => {
+    interval = setInterval(() =>
+        elementSpan4.innerText = scrambleText(originalText)
+    , 100)
+})
+
+element4.addEventListener('mouseout', () => {
+    clearInterval(interval)
+    elementSpan4.innerText = originalText
 })
 
 
@@ -258,8 +294,12 @@ const textureLoader = new THREE.TextureLoader(loadingManager);
 
 textureLoader.load(imageDark);
 textureLoader.load(imageLight);
+textureLoader.load(castlebt);
+textureLoader.load(coattain);
+textureLoader.load(innovision);
+textureLoader.load(pacman);
+textureLoader.load(trinity);
 textureLoader.load(logo);
-
 
 
 /** ===========================================================================================
