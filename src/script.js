@@ -127,10 +127,22 @@ const element1 = document.getElementById('scramble-1');
 const element2 = document.getElementById('scramble-2');
 const element3 = document.getElementById('scramble-3');
 const element4 = document.getElementById('scramble-4');
+const element5 = document.getElementById('scramble-5');
+const element6 = document.getElementById('scramble-6');
+const element7 = document.getElementById('scramble-7');
+const element8 = document.getElementById('scramble-8');
+const element9 = document.getElementById('scramble-9');
+const element10 = document.getElementById('scramble-10');
 const elementSpan1 = document.getElementById('scrambleSpan-1');
 const elementSpan2 = document.getElementById('scrambleSpan-2');
 const elementSpan3 = document.getElementById('scrambleSpan-3');
 const elementSpan4 = document.getElementById('scrambleSpan-4');
+const elementSpan5 = document.getElementById('scrambleSpan-5');
+const elementSpan6 = document.getElementById('scrambleSpan-6');
+const elementSpan7 = document.getElementById('scrambleSpan-7');
+const elementSpan8 = document.getElementById('scrambleSpan-8');
+const elementSpan9 = document.getElementById('scrambleSpan-9');
+const elementSpan10 = document.getElementById('scrambleSpan-10');
 
 const originalText = elementSpan1.innerText
 
@@ -156,6 +168,8 @@ element1.addEventListener('mouseout', () => {
     elementSpan1.innerText = originalText
 })
 
+
+
 element2.addEventListener('mouseover', () => {
     interval = setInterval(() =>
         elementSpan2.innerText = scrambleText(originalText)
@@ -166,6 +180,8 @@ element2.addEventListener('mouseout', () => {
     clearInterval(interval)
     elementSpan2.innerText = originalText
 })
+
+
 
 
 element3.addEventListener('mouseover', () => {
@@ -180,6 +196,8 @@ element3.addEventListener('mouseout', () => {
 })
 
 
+
+
 elementSpan4.addEventListener('mouseover', () => {
     interval = setInterval(() =>
         elementSpan4.innerText = scrambleText(originalText)
@@ -189,6 +207,84 @@ elementSpan4.addEventListener('mouseover', () => {
 element4.addEventListener('mouseout', () => {
     clearInterval(interval)
     elementSpan4.innerText = originalText
+})
+
+
+
+elementSpan5.addEventListener('mouseover', () => {
+    interval = setInterval(() =>
+        elementSpan5.innerText = scrambleText(originalText)
+    , 100)
+})
+
+element5.addEventListener('mouseout', () => {
+    clearInterval(interval)
+    elementSpan5.innerText = originalText
+})
+
+
+
+elementSpan6.addEventListener('mouseover', () => {
+    interval = setInterval(() =>
+        elementSpan6.innerText = scrambleText(originalText)
+    , 100)
+})
+
+element6.addEventListener('mouseout', () => {
+    clearInterval(interval)
+    elementSpan6.innerText = originalText
+})
+
+
+
+elementSpan7.addEventListener('mouseover', () => {
+    interval = setInterval(() =>
+        elementSpan7.innerText = scrambleText(originalText)
+    , 100)
+})
+
+element7.addEventListener('mouseout', () => {
+    clearInterval(interval)
+    elementSpan7.innerText = originalText
+})
+
+
+
+elementSpan8.addEventListener('mouseover', () => {
+    interval = setInterval(() =>
+        elementSpan8.innerText = scrambleText(originalText)
+    , 100)
+})
+
+element8.addEventListener('mouseout', () => {
+    clearInterval(interval)
+    elementSpan8.innerText = originalText
+})
+
+
+
+elementSpan9.addEventListener('mouseover', () => {
+    interval = setInterval(() =>
+        elementSpan9.innerText = scrambleText(originalText)
+    , 100)
+})
+
+element9.addEventListener('mouseout', () => {
+    clearInterval(interval)
+    elementSpan9.innerText = originalText
+})
+
+
+
+elementSpan10.addEventListener('mouseover', () => {
+    interval = setInterval(() =>
+        elementSpan10.innerText = scrambleText(originalText)
+    , 100)
+})
+
+element10.addEventListener('mouseout', () => {
+    clearInterval(interval)
+    elementSpan10.innerText = originalText
 })
 
 

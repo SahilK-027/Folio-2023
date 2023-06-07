@@ -27,13 +27,13 @@
                 let detail = document.getElementById('detail-1');
                 let projectItem = document.getElementById('project-item-1');
                 projectItem.style.borderBottom = "none";
-                detail.style.borderBottom = "1px solid grey";
+                detail.style.borderBottom = "1px solid #4e545a";
                 detail.style.display = "flex";
             }
             function hideDetails1() {
                 let detail = document.getElementById('detail-1');
                 let projectItem = document.getElementById('project-item-1');
-                projectItem.style.borderBottom = "1px solid grey";
+                projectItem.style.borderBottom = "1px solid #4e545a";
                 detail.style.borderBottom = "none";
                 detail.style.display = "none";
             }
@@ -41,13 +41,55 @@
                 let detail = document.getElementById('detail-2');
                 let projectItem = document.getElementById('project-item-2');
                 projectItem.style.borderBottom = "none";
-                detail.style.borderBottom = "1px solid grey";
+                detail.style.borderBottom = "1px solid #4e545a";
                 detail.style.display = "flex";
             }
             function hideDetails2() {
                 let detail = document.getElementById('detail-2');
                 let projectItem = document.getElementById('project-item-2');
-                projectItem.style.borderBottom = "1px solid grey";
+                projectItem.style.borderBottom = "1px solid #4e545a";
+                detail.style.borderBottom = "none";
+                detail.style.display = "none";
+            }
+            function showDetails3() {
+                let detail = document.getElementById('detail-3');
+                let projectItem = document.getElementById('project-item-3');
+                projectItem.style.borderBottom = "none";
+                detail.style.borderBottom = "1px solid #4e545a";
+                detail.style.display = "flex";
+            }
+            function hideDetails3() {
+                let detail = document.getElementById('detail-3');
+                let projectItem = document.getElementById('project-item-3');
+                projectItem.style.borderBottom = "1px solid #4e545a";
+                detail.style.borderBottom = "none";
+                detail.style.display = "none";
+            }
+            function showDetails4() {
+                let detail = document.getElementById('detail-4');
+                let projectItem = document.getElementById('project-item-4');
+                projectItem.style.borderBottom = "none";
+                detail.style.borderBottom = "1px solid #4e545a";
+                detail.style.display = "flex";
+            }
+            function hideDetails4() {
+                let detail = document.getElementById('detail-4');
+                let projectItem = document.getElementById('project-item-4');
+                projectItem.style.borderBottom = "1px solid #4e545a";
+                detail.style.borderBottom = "none";
+                detail.style.display = "none";
+            }
+            function showDetails5() {
+                let detail = document.getElementById('detail-5');
+                let projectItem = document.getElementById('project-item-5');
+                projectItem.style.borderBottom = "none";
+                detail.style.borderBottom = "1px solid #4e545a";
+                detail.style.display = "flex";
+            }
+            function hideDetails5() {
+                let detail = document.getElementById('detail-5');
+                let projectItem = document.getElementById('project-item-5');
+                projectItem.style.borderBottom = "1px solid #4e545a";
                 detail.style.borderBottom = "none";
                 detail.style.display = "none";
             }
@@ -193,8 +235,8 @@
                             <div id="detail-2" class="details">
                                 <div class="project-image-info">
                                     <div class="project-details-left">
-                                        <a target="_blank" href="https://trinity2023.vercel.app"><img class="project-image"
-                                                src="./images/trinity.png" alt="img"></a>
+                                        <a target="_blank" href="https://trinity2023.vercel.app"><img
+                                                class="project-image" src="./images/trinity.png" alt="img"></a>
                                     </div>
                                     <div class="project-details-right">
                                         <p class="full-description">Description: <br> I have created the website for
@@ -211,6 +253,142 @@
                                     <i onclick="hideDetails2()" id="cross-2" class="fa-solid fa-xmark cross"></i>
                                 </div>
                             </div>
+
+
+                            <!--=======================================================================================  
+                        CO ATTAINMENT
+                =======================================================================================  -->
+
+                            <li id="project-item-3" class="project-item">
+                                <div class="info">
+                                    <span class="no">3.</span>
+                                    <span class="project-title">CO Attainment Calculator Web App</span>
+                                </div>
+                                <div class="more-info">
+                                    <div class="btn-1">
+                                        <a id="scramble-5" class="scramble" type="button">
+                                            <span onclick="showDetails3()" id="scrambleSpan-5">EXPLORE</span>
+                                        </a>
+                                    </div>
+                                    <div class="btn-2">
+                                        <a id="scramble-6" class="scramble" type="button" onclick="showDetails3()"><span
+                                                id="scrambleSpan-6">EXPLORE</span></a>
+                                    </div>
+                                </div>
+                            </li>
+                            <div id="detail-3" class="details">
+                                <div class="project-image-info">
+                                    <div class="project-details-left">
+                                        <a target="_blank" href="https://github.com/SahilK-027/CO_Attainment"><img
+                                                class="project-image" src="./images/coAttainment.png" alt="img"></a>
+                                    </div>
+                                    <div class="project-details-right">
+                                        <p class="full-description">Description: It is build on top of the React JS,
+                                            with scss. It is a web app that will automatically find all the computation
+                                            results for course outcome attainments of students of particular
+                                            division.<br></p>
+                                        <br>
+                                        <p class="tech-stack">Tools and Tech: <br>#react.js #MERN-STACK #sheet.js
+                                            #bootstrap</p>
+                                        <br>
+                                        <a target="_blank" href="https://github.com/SahilK-027/CO_Attainment"
+                                            class="visit-button"><span>Code</span></a>
+                                    </div>
+                                    <i onclick="hideDetails3()" id="cross-3" class="fa-solid fa-xmark cross"></i>
+                                </div>
+                            </div>
+
+
+                            <!--=======================================================================================  
+                        PACMAN Game
+                =======================================================================================  -->
+
+                            <li id="project-item-4" class="project-item">
+                                <div class="info">
+                                    <span class="no">4.</span>
+                                    <span class="project-title">PACMAN GAME</span>
+                                </div>
+                                <div class="more-info">
+                                    <div class="btn-1">
+                                        <a id="scramble-7" class="scramble" type="button">
+                                            <span onclick="showDetails4()" id="scrambleSpan-7">EXPLORE</span>
+                                        </a>
+                                    </div>
+                                    <div class="btn-2">
+                                        <a id="scramble-8" class="scramble" type="button" onclick="showDetails4()"><span
+                                                id="scrambleSpan-8">EXPLORE</span></a>
+                                    </div>
+                                </div>
+                            </li>
+                            <div id="detail-4" class="details">
+                                <div class="project-image-info">
+                                    <div class="project-details-left">
+                                        <a target="_blank" href="https://sahilk-027-pacmam.netlify.app/">
+                                            <img class="project-image" src="./images/pacman.png" alt="img">
+                                        </a>
+                                    </div>
+                                    <div class="project-details-right">
+                                        <p class="full-description">Description:
+                                            I developed a PACMAN game using vanilla JavaScript. The enemy in the game
+                                            features random artificial intelligence, providing unpredictable movement
+                                            patterns. This random AI creates an element of surprise as the enemy pursues
+                                            PACMAN throughout the maze, enhancing the overall gameplay experience.<br>
+                                        </p>
+                                        <br>
+                                        <p class="tech-stack">Tools and Tech: #Vanilla JavaScript #HTML-canvas<br></p>
+                                        <br>
+                                        <a target="_blank" href="https://sahilk-027-pacmam.netlify.app/"
+                                            class="visit-button"><span>Visit</span></a>
+                                    </div>
+                                    <i onclick="hideDetails4()" id="cross-4" class="fa-solid fa-xmark cross"></i>
+                                </div>
+                            </div>
+
+
+                            <!--=======================================================================================  
+                        CASTLE-BATTLE Game
+                =======================================================================================  -->
+
+                            <li id="project-item-5" class="project-item">
+                                <div class="info">
+                                    <span class="no">5.</span>
+                                    <span class="project-title">CASTLE-BATTLE GAME</span>
+                                </div>
+                                <div class="more-info">
+                                    <div class="btn-1">
+                                        <a id="scramble-9" class="scramble" type="button">
+                                            <span onclick="showDetails5()" id="scrambleSpan-9">EXPLORE</span>
+                                        </a>
+                                    </div>
+                                    <div class="btn-2">
+                                        <a id="scramble-10" class="scramble" type="button"
+                                            onclick="showDetails5()"><span id="scrambleSpan-10">EXPLORE</span></a>
+                                    </div>
+                                </div>
+                            </li>
+                            <div id="detail-5" class="details">
+                                <div class="project-image-info">
+                                    <div class="project-details-left">
+                                        <a target="_blank" href="https://sahilk-027-castle-battle.netlify.app/">
+                                            <img class="project-image" src="./images/castleBattle.png" alt="img">
+                                        </a>
+                                    </div>
+                                    <div class="project-details-right">
+                                        <p class="full-description">Description: Castle-Battle is an exciting and
+                                            engaging two-player fighting game built entirely in vanilla JavaScript. The
+                                            game is designed to provide an immersive gaming experience, complete with
+                                            captivating sound effects and impressive sprite animations.<br>
+                                        </p>
+                                        <br>
+                                        <p class="tech-stack">Tools and Tech: #Vanilla JavaScript #HTML-canvas<br></p>
+                                        <br>
+                                        <a target="_blank" href="https://sahilk-027-castle-battle.netlify.app/"
+                                            class="visit-button"><span>Visit</span></a>
+                                    </div>
+                                    <i onclick="hideDetails5()" id="cross-5" class="fa-solid fa-xmark cross"></i>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
 

@@ -392,6 +392,7 @@ body.dark a{
   --move-initial: calc(-25% + var(--offset));
   --move-final: calc(-50% + var(--offset));
   font-family: "stx";
+  transition: all 0.3s ease-in-out;
 }
 
 .marquee__inner {
@@ -399,7 +400,7 @@ body.dark a{
   display: flex;
   position: relative;
   transform: translate3d(var(--move-initial), 0, 0);
-  animation: marquee 5s linear infinite;
+  animation: marquee 15s linear infinite;
   animation-play-state: running;
 }
 
@@ -411,10 +412,6 @@ body.dark a{
 .marquee .hollow {
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke-width: 0.1rem;
-}
-
-.marquee:hover .marquee__inner {
-  animation-play-state: running;
 }
 
 @keyframes marquee {
@@ -433,7 +430,7 @@ body.dark a{
 
 .project-item {
   margin-top: 20px;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid #4e545a;
   font-size: 14px;
   padding: 14px;
   display: flex;
@@ -584,14 +581,6 @@ span {
   inherits: true;
 }
 
-#detail-1{
-  display: none;
-  padding-bottom: 10px;
-}
-#detail-2{
-  display: none;
-  padding-bottom: 10px;
-}
 .project-image-info {
   display: flex;
   justify-content: center;
@@ -677,6 +666,26 @@ span {
   pointer: cursor;
   border: 2px solid grey;
   padding: 4px 10px;
+}
+#detail-1{
+  display: none;
+  padding-bottom: 10px;
+}
+#detail-2{
+  display: none;
+  padding-bottom: 10px;
+}
+#detail-3{
+  display: none;
+  padding-bottom: 10px;
+}
+#detail-4{
+  display: none;
+  padding-bottom: 10px;
+}
+#detail-5{
+  display: none;
+  padding-bottom: 10px;
 }
 .cross{
   pointer-events: auto;
