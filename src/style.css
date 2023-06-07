@@ -691,3 +691,11 @@ span {
   pointer-events: auto;
   cursor: pointer;
 }
+.copyright{
+  margin-top: 60px;
+  font-family: "Roboto Mono", monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+}
