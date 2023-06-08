@@ -447,6 +447,7 @@ loader.load(
         // set the audio object buffer to the loaded object
         background.setBuffer(audioBuffer);
         background.setLoop(true);
+        background.setVolume(0.6);
     }
 );
 
