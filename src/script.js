@@ -32,7 +32,7 @@ mmmmmm  mmmm  m      mmmmm   mmmm          mmmm   mmmm   mmmm   mmmm
 
 `);
 
-
+const mobile = window.matchMedia("(max-width: 985px)").matches;
 const myText = new SplitType('.my-text');
 
 function Ticker(elem) {
@@ -310,6 +310,9 @@ const scene = new THREE.Scene();
 =========================================================================================== */
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 1000);
 camera.position.set(0.0, 0.0, 4.0);
+if(mobile){
+    camera.position.set(0.0, 0.0, 5.0);
+}
 scene.add(camera);
 
 /** ===========================================================================================
