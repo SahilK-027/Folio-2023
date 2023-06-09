@@ -159,7 +159,7 @@ body.dark a {
   pointer-events: none;
 }
 .music-bars {
-  height: 20px;
+  height: 15px;
   width: 40px;
   display: flex;
   justify-content: center;

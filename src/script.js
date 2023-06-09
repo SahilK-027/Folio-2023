@@ -320,19 +320,20 @@ scene.add(camera);
 =========================================================================================== */
 const musicBarsDiv = document.querySelector('.music-bars')
 const musicBars = document.querySelectorAll('.stroke');
+console.log(musicBars);
 const progressBar = document.querySelector('.loading-progress');
 let SoundPlaying = false;
 musicBarsDiv.addEventListener('click', () => {
     ctx.resume();
     if (!SoundPlaying) {
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 5; i++) {
             musicBars[i].style.animationPlayState = 'running'
         }
         background.play();
         SoundPlaying = true;
     }
     else {
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 5; i++) {
             musicBars[i].style.animationPlayState = 'paused';
         }
         background.pause();
