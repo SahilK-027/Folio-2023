@@ -460,8 +460,8 @@ let isDark = false;
 const moreInfoBtnDark = document.querySelectorAll('.btn-2');
 const moreInfoBtnLight = document.querySelectorAll('.btn-1');
 
-if(isDark){
-    moreInfoBtnLight.forEach((btn)=>{
+if(!isDark){
+    moreInfoBtnDark.forEach((btn)=>{
         btn.style.display = "none";
     })
 }
