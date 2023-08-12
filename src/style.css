@@ -37,15 +37,15 @@ a {
 }
 body {
   /* overflow-x: hidden; */
-  background: var(--main-bg-color-dark);
-  color: var(--text-color-dark);
-}
-body.dark {
   background: var(--main-bg-color-light);
   color: var(--text-color-light);
 }
+body.dark {
+  background: var(--main-bg-color-dark);
+  color: var(--text-color-dark);
+}
 body.dark a {
-  color: var(--text-color-light);
+  color: var(--text-color-dark);
 }
 .webgl {
   position: fixed;
@@ -59,7 +59,7 @@ body.dark a {
 #loader-page {
   width: 100vw;
   height: 100vh;
-  background: var(--main-bg-color-dark);
+  background: var(--main-bg-color-light);
   z-index: 2;
   display: flex;
   justify-content: center;
@@ -73,7 +73,7 @@ body.dark a {
 }
 #app > #loader-page > .word {
   bottom: 0;
-  color: #fff;
+  color: #000;
   font-size: 18px;
   height: 2.5em;
   left: 0;
@@ -92,7 +92,7 @@ body.dark a {
 }
 
 #app > #loader-page > .word > .done {
-  color: #fff;
+  color: #000;
   transform: translateX(0) scale(1);
 }
 
@@ -113,7 +113,7 @@ body.dark a {
 .loading-progress {
   width: 0px;
   height: 4px;
-  background: var(--main-bg-color-light);
+  background: var(--main-bg-color-dark);
   border-radius: 10px;
   transition: all 0.3s ease-in-out;
   position: relative;

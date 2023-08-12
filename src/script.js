@@ -455,7 +455,7 @@ loader.load(
 /** ===========================================================================================
  * *                                    Meshes
 =========================================================================================== */
-let isDark = true;
+let isDark = false;
 
 const moreInfoBtnDark = document.querySelectorAll('.btn-2');
 const moreInfoBtnLight = document.querySelectorAll('.btn-1');
@@ -503,7 +503,7 @@ const material = new THREE.ShaderMaterial({
     vertexShader: VertexShader,
     fragmentShader: FragmentShader,
     uniforms: {
-        uTexture: { value: textureDark },
+        uTexture: { value: textureLight },
     },
     side: THREE.DoubleSide,
 })
